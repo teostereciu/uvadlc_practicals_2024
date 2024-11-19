@@ -34,23 +34,43 @@ import torch
 
 import matplotlib.pyplot as plt
 
-def plot_training_progress(logging_dict):
+
+def plot_training_progress(logging_dict, test_acc):
     """
-    Plots training and validation loss over epochs.
+    Plots training and validation loss over epochs, and training, validation, and test accuracy.
+    
     Args:
-      logging_dict: A dictionary with keys 'train_loss' and 'val_loss' containing lists of loss values per epoch.
+      logging_dict: A dictionary with keys 'train_loss', 'val_loss', 'train_accuracy', 
+                    'val_accuracy'.
     """
     epochs = range(1, len(logging_dict['train_loss']) + 1)
-
-    plt.figure(figsize=(10, 6))
+    
+    plt.figure(figsize=(12, 10))
+    
+    # plot 1: training and validation loss
+    plt.subplot(2, 1, 1)
     plt.plot(epochs, logging_dict['train_loss'], label="Training Loss", color="blue", marker='o')
     plt.plot(epochs, logging_dict['val_loss'], label="Validation Loss", color="red", marker='o')
-
     plt.title("Training and Validation Loss Over Epochs")
     plt.xlabel("Epochs")
     plt.ylabel("Loss")
     plt.legend()
     plt.grid(True)
+    
+    # plot 2: training and validation accuracy with test accuracy line
+    plt.subplot(2, 1, 2)
+    plt.plot(epochs, logging_dict['train_accuracy'], label="Training Accuracy", color="blue", marker='o')
+    plt.plot(epochs, logging_dict['val_accuracy'], label="Validation Accuracy", color="red", marker='o')
+    
+    plt.axhline(y=test_acc, color='green', linestyle='--', label=f"Test Accuracy ({test_acc:.2f})")
+    
+    plt.title("Training, Validation, and Test Accuracy Over Epochs")
+    plt.xlabel("Epochs")
+    plt.ylabel("Accuracy")
+    plt.legend()
+    plt.grid(True)
+    
+    plt.tight_layout()
     plt.show()
 
 
@@ -188,10 +208,11 @@ def train(hidden_dims, lr, batch_size, epochs, seed, data_dir):
                     'val_loss': [],
                     'val_accuracy': []}
 
-    # TODO: Initialize model and loss module
+    # initialize model and loss module
     model = MLP(n_inputs=32*32*3, n_hidden=hidden_dims, n_classes=10)
+    loss_module = model.loss
     
-    # TODO: Training loop including validation
+    # training loop including validation
     for epoch in range(epochs):
         model.clear_cache()
         
@@ -208,7 +229,7 @@ def train(hidden_dims, lr, batch_size, epochs, seed, data_dir):
             predictions = model.forward(x_batch)
 
             # compute loss
-            loss = model.loss.forward(predictions, y_batch)
+            loss = loss_module.forward(predictions, y_batch)
             epoch_loss += loss
 
             # compute accuracy for this batch
@@ -216,7 +237,7 @@ def train(hidden_dims, lr, batch_size, epochs, seed, data_dir):
             epoch_accuracy += batch_accuracy
 
             # backward pass and weight update
-            dout = model.loss.backward(predictions, y_batch) 
+            dout = loss_module.backward(predictions, y_batch) 
             model.backward(dout)
 
             # update weights
@@ -239,7 +260,7 @@ def train(hidden_dims, lr, batch_size, epochs, seed, data_dir):
         for x_val_batch, y_val_batch in cifar10_loader['validation']:
             x_val_batch = x_val_batch.reshape(x_val_batch.shape[0], -1)
             predictions = model.forward(x_val_batch)
-            val_loss += model.loss.forward(predictions, y_val_batch)
+            val_loss += loss_module.forward(predictions, y_val_batch)
 
         avg_val_loss = val_loss / len(cifar10_loader['validation'])
         logging_dict['val_loss'].append(avg_val_loss)  
@@ -251,7 +272,7 @@ def train(hidden_dims, lr, batch_size, epochs, seed, data_dir):
             best_val_accuracy = val_accuracy
             best_model = deepcopy(model)
 
-    # TODO: Test best model
+    # test best model
     cifar10_loader['test']
     test_accuracy = evaluate_model(best_model, cifar10_loader['test'])
 
@@ -290,4 +311,4 @@ if __name__ == '__main__':
 
     model, val_accuracies, test_accuracy, logging_dict = train(**kwargs)
     print(f"Test accuracy: {test_accuracy:.4f}")
-    plot_training_progress(logging_dict)
+    plot_training_progress(logging_dict, test_accuracy)

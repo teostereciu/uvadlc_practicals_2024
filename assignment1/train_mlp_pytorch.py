@@ -33,6 +33,45 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 
+import matplotlib.pyplot as plt
+
+def plot_training_progress(logging_dict, test_acc):
+    """
+    Plots training and validation loss over epochs, and training, validation, and test accuracy.
+    
+    Args:
+      logging_dict: A dictionary with keys 'train_loss', 'val_loss', 'train_accuracy', 
+                    'val_accuracy'.
+    """
+    epochs = range(1, len(logging_dict['train_loss']) + 1)
+    
+    plt.figure(figsize=(12, 10))
+    
+    # plot 1: training and validation loss
+    plt.subplot(2, 1, 1)
+    plt.plot(epochs, logging_dict['train_loss'], label="Training Loss", color="blue", marker='o')
+    plt.plot(epochs, logging_dict['val_loss'], label="Validation Loss", color="red", marker='o')
+    plt.title("Training and Validation Loss Over Epochs")
+    plt.xlabel("Epochs")
+    plt.ylabel("Loss")
+    plt.legend()
+    plt.grid(True)
+    
+    # plot 2: training and validation accuracy with test accuracy line
+    plt.subplot(2, 1, 2)
+    plt.plot(epochs, logging_dict['train_accuracy'], label="Training Accuracy", color="blue", marker='o')
+    plt.plot(epochs, logging_dict['val_accuracy'], label="Validation Accuracy", color="red", marker='o')
+    
+    plt.axhline(y=test_acc, color='green', linestyle='--', label=f"Test Accuracy ({test_acc:.2f})")
+    
+    plt.title("Training, Validation, and Test Accuracy Over Epochs")
+    plt.xlabel("Epochs")
+    plt.ylabel("Accuracy")
+    plt.legend()
+    plt.grid(True)
+    
+    plt.tight_layout()
+    plt.show()
 
 def accuracy(predictions, targets):
     """
@@ -55,6 +94,10 @@ def accuracy(predictions, targets):
     #######################
     # PUT YOUR CODE HERE  #
     #######################
+
+    predicted_classes = predictions.argmax(dim=1)
+    correct = (predicted_classes == targets).sum().item()
+    accuracy = correct / targets.size(0)
 
     #######################
     # END OF YOUR CODE    #
@@ -83,6 +126,19 @@ def evaluate_model(model, data_loader):
     #######################
     # PUT YOUR CODE HERE  #
     #######################
+
+    model.eval()
+    correct, total = 0, 0
+
+    with torch.no_grad():  # disable gradient computation for faster evaluation
+        for x_batch, y_batch in data_loader:
+            x_batch, y_batch = x_batch.to(model.device), y_batch.to(model.device)
+            x_batch = x_batch.view(x_batch.size(0), -1)
+            predictions = model(x_batch)
+            correct += (predictions.argmax(dim=1) == y_batch).sum().item()
+            total += y_batch.size(0)
+
+    avg_accuracy = correct / total
 
     #######################
     # END OF YOUR CODE    #
@@ -145,16 +201,70 @@ def train(hidden_dims, lr, use_batch_norm, batch_size, epochs, seed, data_dir):
     # PUT YOUR CODE HERE  #
     #######################
 
-    # TODO: Initialize model and loss module
-    model = ...
-    loss_module = ...
-    # TODO: Training loop including validation
-    # TODO: Do optimization with the simple SGD optimizer
-    val_accuracies = ...
-    # TODO: Test best model
-    test_accuracy = ...
-    # TODO: Add any information you might want to save for plotting
-    logging_dict = ...
+    val_accuracies = []
+    best_val_accuracy = 0.0
+    logging_dict = {'train_loss': [],
+                    'train_accuracy': [],
+                    'val_loss': [],
+                    'val_accuracy': []}
+
+    # initialize model, loss module, and optimizer
+    model = MLP(n_inputs=32*32*3, n_hidden=hidden_dims, n_classes=10, use_batch_norm=use_batch_norm).to(device)
+    loss_module = nn.CrossEntropyLoss()
+    optimizer = optim.SGD(model.parameters(), lr=lr)
+
+    # training loop including SGD and validation
+    for epoch in range(epochs):
+        # train phase
+        model.train()
+        epoch_loss = 0.0
+        epoch_accuracy = 0.0
+
+        for x_batch, y_batch in cifar10_loader['train']:
+            x_batch, y_batch = x_batch.to(device), y_batch.to(device)
+            x_batch = x_batch.view(x_batch.size(0), -1) 
+            
+            optimizer.zero_grad()
+            predictions = model(x_batch)
+
+            batch_accuracy = accuracy(predictions, y_batch)
+            epoch_accuracy += batch_accuracy
+
+            loss = loss_module(predictions, y_batch)
+            loss.backward()
+            optimizer.step()
+
+            epoch_loss += loss.item()
+    
+        avg_epoch_loss = epoch_loss / len(cifar10_loader['train'])
+        avg_epoch_accuracy = epoch_accuracy / len(cifar10_loader['train'])
+        logging_dict['train_loss'].append(avg_epoch_loss)
+        logging_dict['train_accuracy'].append(avg_epoch_accuracy)
+
+        print(f"Epoch {epoch + 1}/{epochs}, Loss: {avg_epoch_loss:.4f}, Accuracy: {avg_epoch_accuracy:.4f}")
+        
+        # validation phase
+        val_loss = 0.0
+        for x_val_batch, y_val_batch in cifar10_loader['validation']:
+            x_val_batch, y_val_batch = x_val_batch.to(device), y_val_batch.to(device)
+            x_val_batch = x_val_batch.reshape(x_val_batch.shape[0], -1)
+            predictions = model.forward(x_val_batch)
+            val_loss += loss_module(predictions, y_val_batch).item()
+
+        avg_val_loss = val_loss / len(cifar10_loader['validation'])
+        logging_dict['val_loss'].append(avg_val_loss)
+        val_accuracy = evaluate_model(model, cifar10_loader['validation'])
+        val_accuracies.append(val_accuracy)
+        
+        # save best model based on validation accuracy
+        if val_accuracy > best_val_accuracy:
+            best_val_accuracy = val_accuracy
+            best_model = deepcopy(model)
+
+    # test best model
+    test_accuracy = evaluate_model(best_model, cifar10_loader['test'])
+
+    logging_dict["val_accuracy"] = val_accuracies
     #######################
     # END OF YOUR CODE    #
     #######################
@@ -189,5 +299,6 @@ if __name__ == '__main__':
     args = parser.parse_args()
     kwargs = vars(args)
 
-    train(**kwargs)
-    # Feel free to add any additional functions, such as plotting of the loss curve here
+    model, val_accuracies, test_accuracy, logging_dict = train(**kwargs)
+    print(f"Test accuracy: {test_accuracy:.4f}")
+    plot_training_progress(logging_dict, test_accuracy)

@@ -59,7 +59,33 @@ class MLP(nn.Module):
         #######################
         # PUT YOUR CODE HERE  #
         #######################
-        pass
+        super(MLP, self).__init__()
+
+        layers = []
+        input_dim = n_inputs
+
+        for i, hidden_dim in enumerate(n_hidden):
+            # linear layer with kaiming initialization
+            linear = nn.Linear(input_dim, hidden_dim)
+            nn.init.kaiming_normal_(linear.weight, nonlinearity='relu')
+            layers.append((f'linear_{i}', linear))
+
+            # optional BatchNorm layer
+            if use_batch_norm:
+                layers.append((f'batch_norm_{i}', nn.BatchNorm1d(hidden_dim)))
+
+            # activation layer
+            layers.append((f'activation_{i}', nn.ELU()))
+
+            # update input_dim for the next layer
+            input_dim = hidden_dim
+
+        # output layer
+        output_layer = nn.Linear(input_dim, n_classes)
+        nn.init.kaiming_normal_(output_layer.weight, nonlinearity='relu')
+        layers.append(('output', output_layer))
+
+        self.model = nn.Sequential(OrderedDict(layers))
         #######################
         # END OF YOUR CODE    #
         #######################
@@ -81,7 +107,7 @@ class MLP(nn.Module):
         #######################
         # PUT YOUR CODE HERE  #
         #######################
-
+        out = self.model(x)
         #######################
         # END OF YOUR CODE    #
         #######################
