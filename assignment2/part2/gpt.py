@@ -113,7 +113,9 @@ class CausalSelfAttention(nn.Module):
         """
         # Generate RoPE embeddings dynamically based on T
         seq_pos = torch.arange(T, device=xq.device, dtype=xq.dtype)  # Shape: (T)
+        self.inv_freq = self.inv_freq.to(seq_pos.device)
         freqs = torch.einsum("t,d->td", seq_pos, self.inv_freq)    # Shape: (T, dim // 2)
+       
         pos_emb = seq_pos.unsqueeze(-1) * freqs   # Shape: (1, 1, T, dim)
         
         # Split pos into sin and cos components, repeating each to match xq and xk dimensions
@@ -206,7 +208,7 @@ class TransformerDecoderBlock(nn.Module):
         # Forward pass through the Decoder Layer
         residual = x
         x = self.layer_norm_1(x)
-        x, _ = self.self_attention(x, x, x)
+        x = self.self_attention(x)
         x = x + residual
 
         residual = x
@@ -487,7 +489,7 @@ class GPT(nn.Module):
             
             else:
                 # apply softmax to convert logits to (normalized) probabilities
-                probs = F.log_softmax(logits, dim=-1)
+                probs = F.softmax(logits, dim=-1)
                 # optionally only consider top-k logits for sampling. 
                 if top_k is not None:
                     top_k_vals, top_k_indices = torch.topk(probs, k=top_k, dim=-1)
