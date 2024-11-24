@@ -1,0 +1,4 @@
+data/
+*.job
+.DS_Store
+__pycache__/
