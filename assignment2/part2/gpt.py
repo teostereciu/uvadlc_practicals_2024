@@ -418,7 +418,6 @@ class GPT(nn.Module):
 
         # Forward token and position embedders
         # token embeddings of shape (b, t, n_embd)
-        # apply dropout to the tokens
         tok_emb = self.transformer.w_token_emb(idx)
 
         if self.config.abs_emb:
@@ -428,6 +427,7 @@ class GPT(nn.Module):
         else:
             x = tok_emb
 
+        # apply dropout to the tokens
         x = self.transformer.drop(x)
 
         # Iterate through the transformer blocks
