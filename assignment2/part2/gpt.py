@@ -143,6 +143,7 @@ class CausalSelfAttention(nn.Module):
         v = v.view(B, T, self.n_head, C // self.n_head).transpose(1, 2)  # Shape: (B, n_head, T, head_dim)
 
         if not self.config.abs_emb:
+            print("##########Rotary embedding applied.")
             q, k = self.apply_rotary_emb(q, k, T)
 
         # causal self-attention; Self-attend: (B, nh, T, hs) x (B, nh, hs, T) -> (B, nh, T, T)
@@ -470,24 +471,38 @@ class GPT(nn.Module):
             idx_cond = idx if idx.size(1) <= self.block_size else idx[:, -self.block_size:]
 
             # forward the model to get the logits for the index in the sequence
+            logits = self(idx_cond)
             # pluck the logits at the final step and scale by desired temperature
+            logits = logits[:, -1, :] / temperature
 
             if not do_sample:
                 # take the most likely token
-                idx_next = ...
+                idx_next = torch.argmax(logits, dim=-1, keepdim=True)
             
             else:
                 # apply softmax to convert logits to (normalized) probabilities
-
+                probs = F.log_softmax(logits, dim=-1)
                 # optionally only consider top-k logits for sampling. 
                 if top_k is not None:
-                    pass
+                    top_k_vals, top_k_indices = torch.topk(probs, k=top_k, dim=-1)
+                    probs = torch.zeros_like(probs).scatter_(-1, top_k_indices, top_k_vals)
+                    probs /= probs.sum(dim=-1, keepdim=True)  
 
                 # optionally apply top-p sampling
                 if top_p is not None:
-                    pass
+                    sorted_probs, sorted_indices = torch.sort(probs, descending=True, dim=-1)
+                    cumulative_probs = torch.cumsum(sorted_probs, dim=-1)
+
+                    # mask tokens with cumulative probability above top_p
+                    sorted_mask = cumulative_probs > top_p
+                    sorted_mask[:, 1:] = sorted_mask[:, :-1].clone()
+                    sorted_mask[:, 0] = False
+                    probs.scatter_(-1, sorted_indices, sorted_mask.float())  
+                    probs /= probs.sum(dim=-1, keepdim=True)  
+
+                idx_next = torch.multinomial(probs, num_samples=1)
             
             # append sampled index to the running sequence and continue
-            idx = ...
+            idx = torch.cat((idx, idx_next), dim=1)
 
         return idx
