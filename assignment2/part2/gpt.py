@@ -471,37 +471,23 @@ class GPT(nn.Module):
 
             # forward the model to get the logits for the index in the sequence
             # pluck the logits at the final step and scale by desired temperature
-            logits = self(idx_cond)
-            logits = logits[:, -1, :]
-            logits = logits / temperature
 
             if not do_sample:
                 # take the most likely token
-                idx_next = torch.argmax(logits, dim=-1, keepdim=True)
+                idx_next = ...
             
             else:
                 # apply softmax to convert logits to (normalized) probabilities
-                probs = torch.nn.functional.softmax(logits, dim=-1)
+
                 # optionally only consider top-k logits for sampling. 
                 if top_k is not None:
-                    top_k_values, top_k_indices = torch.topk(probs, top_k, dim=-1)
-                    logits = torch.full_like(probs, float('-inf'))  # mask all tokens
-                    logits.scatter_(-1, top_k_indices, top_k_values)  # set the top-k logits to their values
-                    probs = torch.nn.functional.softmax(logits, dim=-1)  # recompute probabilities
-
+                    pass
 
                 # optionally apply top-p sampling
                 if top_p is not None:
-                    sorted_probs, sorted_indices = torch.sort(probs, descending=True, dim=-1)
-                    cumulative_probs = torch.cumsum(sorted_probs, dim=-1)
-                    cutoff = (cumulative_probs > top_p).float().unsqueeze(-1)
-                    cutoff = torch.cumsum(cutoff, dim=-1)
-                    cutoff = torch.where(cutoff > 0, torch.full_like(cutoff, float('-inf')), probs)
-                    probs = torch.nn.functional.softmax(cutoff, dim=-1)  # recompute probabilities
-
-                idx_next = torch.multinomial(probs, 1)  # take next sample
-
+                    pass
+            
             # append sampled index to the running sequence and continue
-            idx = torch.cat((idx, idx_next), dim=1)
+            idx = ...
 
         return idx
