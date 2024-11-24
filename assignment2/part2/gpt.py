@@ -192,10 +192,27 @@ class TransformerDecoderBlock(nn.Module):
     def __init__(self, config):
         super().__init__()
         # Initialize the layers
-        raise NotImplementedError
+        self.layer_norm_1 = RMSNorm(config.n_embd)
+        self.self_attention = CausalSelfAttention(config)
+        self.layer_norm_2 = RMSNorm(config.n_embd)
+        self.mlpf = nn.Sequential(
+            nn.Linear(config.n_embd, config.n_embd * 4), 
+            BERTGELU(),  
+            nn.Linear(config.n_embd * 4, config.n_embd),  
+            nn.Dropout(config.resid_pdrop)  
+        )
+
     def forward(self, x):
         # Forward pass through the Decoder Layer
-        out = ...
+        residual = x
+        x = self.layer_norm_1(x)
+        x, _ = self.self_attention(x, x, x)
+        x = x + residual
+
+        residual = x
+        x = self.layer_norm_2(x)
+        x = self.mlpf(x)
+        out = x + residual
         return out
 
 
