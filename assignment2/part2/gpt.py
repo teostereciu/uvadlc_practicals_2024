@@ -417,18 +417,24 @@ class GPT(nn.Module):
         # Forward token and position embedders
         # token embeddings of shape (b, t, n_embd)
         # apply dropout to the tokens
-        tok_emb = ...
+        tok_emb = self.transformer.w_token_emb(idx)
 
         if self.config.abs_emb:
             pos = torch.arange(0, t, dtype=torch.long, device=device).unsqueeze(0) # shape (1, t)
             pos_emb = self.transformer.w_pos_emb(pos) 
-            x = tok_emb + pos_emb
+            x = tok_emb + pos_emb 
         else:
             x = tok_emb
 
+        x = self.transformer.drop(x)
+
         # Iterate through the transformer blocks
+        for block in self.transformer.h:
+            x = block(x)
+
         # Apply final layer normalization and linear layer to produce logits
-        logits = ...
+        x = self.transformer.ln_f(x)
+        logits = self.lm_head(x)
 
         return logits
 
