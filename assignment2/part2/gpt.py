@@ -503,7 +503,10 @@ class GPT(nn.Module):
                     sorted_mask = cumulative_probs > top_p
                     sorted_mask[:, 1:] = sorted_mask[:, :-1].clone()
                     sorted_mask[:, 0] = False
-                    probs.scatter_(-1, sorted_indices, sorted_mask.float())  
+                    sorted_probs[sorted_mask] = 0.0
+                    probs = torch.zeros_like(probs).scatter_(-1, sorted_indices, sorted_probs)  
+                    
+                    # renormalize
                     probs /= probs.sum(dim=-1, keepdim=True) 
                 
                 idx_next = torch.multinomial(probs, num_samples=1)
