@@ -206,15 +206,13 @@ class TransformerDecoderBlock(nn.Module):
 
     def forward(self, x):
         # Forward pass through the Decoder Layer
-        residual = x
-        x = self.layer_norm_1(x)
-        x = self.self_attention(x)
-        x = x + residual
+        x_norm_1 = self.layer_norm_1(x)
+        a = self.self_attention(x_norm_1)
+        x = x + a
 
-        residual = x
-        x = self.layer_norm_2(x)
-        x = self.mlpf(x)
-        out = x + residual
+        x_norm_2 = self.layer_norm_2(x)
+        m = self.mlpf(x_norm_2)
+        out = x + m
         return out
 
 
