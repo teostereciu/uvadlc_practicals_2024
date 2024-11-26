@@ -112,10 +112,8 @@ class CausalSelfAttention(nn.Module):
             Tuple[torch.Tensor, torch.Tensor]: Tuple containing the modified query and key tensors.
         """
         # Generate RoPE embeddings dynamically based on T
-        seq_pos = torch.arange(T, device=xq.device, dtype=xq.dtype)  # Shape: (T)
-        self.inv_freq = self.inv_freq.to(seq_pos.device)
-        freqs = torch.einsum("t,d->td", seq_pos, self.inv_freq)    # Shape: (T, dim // 2)
-       
+        seq_pos = torch.arange(0, T, device=xq.device, dtype=xq.dtype)  # Shape: (T)
+        freqs = self.inv_freq.to(seq_pos.device)
         pos_emb = seq_pos.unsqueeze(-1) * freqs   # Shape: (1, 1, T, dim)
         
         # Split pos into sin and cos components, repeating each to match xq and xk dimensions
@@ -127,9 +125,11 @@ class CausalSelfAttention(nn.Module):
         
         # Apply RoPE transformation: pair and rotate dimensions
         # Rotate query and key tensors
-        rotate_half = lambda x: torch.cat([-x.split(x.size(-1) // 2, dim=-1)[1], x.split(x.size(-1) // 2, dim=-1)[0]], dim=-1)
-        xq_rot = (xq * pos_cos) + (rotate_half(xq) * pos_sin)
-        xk_rot = (xk * pos_cos) + (rotate_half(xk) * pos_sin)
+        xq1, xq2 = xq.split(xq.size(-1) // 2, dim=-1)
+        xq_rot = (xq * pos_cos) + (torch.cat([-xq2, xq1], dim=-1) * pos_sin)
+        
+        xk1, xk2 = xk.split(xk.size(-1) // 2, dim=-1)
+        xk_rot = (xk * pos_cos) + (torch.cat([-xk2, xk1], dim=-1) * pos_sin)
         
         return xq_rot, xk_rot
         
