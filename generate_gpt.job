@@ -1,0 +1,36 @@
+#!/bin/bash
+
+#SBATCH --partition=gpu_mig
+#SBATCH --gpus=1
+#SBATCH --job-name=GenerateGPT
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=9
+#SBATCH --time=01:00:00
+#SBATCH --output=generate_output_%A.out
+
+module purge
+module load 2023
+module load Anaconda3/2023.07-2
+
+# Your job starts in the directory where you call sbatch
+cd $HOME/uvadlc_practicals_2024/assignment2/part2
+# Activate your environment
+source activate dl2024
+# Run your code
+srun python generate.py --prompt="Once upon a time " --num_samples=5 --num_generated_tokens=40
+srun python generate.py --prompt="Once upon a time " --num_samples=5 --num_generated_tokens=80
+srun python generate.py --prompt="Once upon a time " --num_samples=5 --num_generated_tokens=160
+srun python generate.py --prompt="Love is like " --num_samples=5 --do_sample=False --num_generated_tokens=100
+srun python generate.py --prompt="Love is like " --num_samples=5 --num_generated_tokens=100
+srun python generate.py --prompt="Love is like " --num_samples=5 --temperature=0.9 --num_generated_tokens=100
+srun python generate.py --prompt="Love is like " --num_samples=5 --temperature=0.7 --num_generated_tokens=100
+srun python generate.py --prompt="Love is like " --num_samples=5 --temperature=0.5 --num_generated_tokens=100
+srun python generate.py --prompt="Walking through the forest, I suddenly heard " --num_samples=5 --top_p=0.5
+srun python generate.py --prompt="Walking through the forest, I suddenly heard " --num_samples=5 --top_p=0.7
+srun python generate.py --prompt="Walking through the forest, I suddenly heard " --num_samples=5 --top_p=0.9
+srun python generate.py --prompt="What does it truly mean to be happy? I think " --num_samples=5 --do_sample=False
+srun python generate.py --prompt="My new roommate is so weird, they keep " --num_samples=5 --num_generated_tokens=100
+srun python generate.py --prompt="When I opened the box, I was surprised to find " --num_samples=5 --num_generated_tokens=100
+srun python generate.py --prompt="He hesitated for a moment before saying, " --num_samples=5 --num_generated_tokens=100
+srun python generate.py --prompt="Attention is all you need because " --num_samples=5  --num_generated_tokens=160
+srun python generate.py --prompt="The main advantage of using top-p sampling over greedy decoding is " --num_samples=5 --num_generated_tokens=160
