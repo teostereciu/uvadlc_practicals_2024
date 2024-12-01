@@ -157,7 +157,7 @@ class CausalSelfAttention(nn.Module):
             # Compute attention scores
             att = torch.matmul(q, k.transpose(-2, -1)) / math.sqrt(k.size(-1)) 
             # Apply causal mask
-            att = att.masked_fill(self.mask[:, :, :T, :T] == 0, -9e15)
+            att = att.masked_fill(self.mask[:, :, :T, :T] == 0, float('-inf'))
             # Apply attention to the values
             att = F.softmax(att, dim=-1)
             att = self.attn_dropout(att)

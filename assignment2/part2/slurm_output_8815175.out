@@ -1,0 +1,445 @@
+============================================================================================== 
+Warning! Mixing Conda and module environments may lead to corruption of the
+user environment. 
+We do not recommend users mixing those two environments unless absolutely
+necessary. Note that 
+SURF does not provide any support for Conda environment.
+For more information, please refer to our software policy page:
+https://servicedesk.surf.nl/wiki/display/WIKI/Software+policy+Snellius#SoftwarepolicySnellius-UseofAnacondaandMinicondaenvironmentsonSnellius 
+
+Remember that many packages have already been installed on the system and can
+be loaded using 
+the 'module load <package__name>' command. If you are uncertain if a package is
+already available 
+on the system, please use 'module avail' or 'module spider' to search for it.
+============================================================================================== 
+[rank: 0] Seed set to 0
+/gpfs/home6/scur2792/uvadlc_practicals_2024/assignment2/part2/generate.py:104: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(model_weights_path)
+True False
+number of parameters: 10.73M
+data has 540241 characters, 87 unique.
+running on device cpu
+--------------------------------------------------------------------------------
+Once upon a time the king held a great feast, and
+that ev
+--------------------------------------------------------------------------------
+Once upon a time there was a dear little girl who was
+Cat
+--------------------------------------------------------------------------------
+Once upon a time there was a widow which the true bride, 
+--------------------------------------------------------------------------------
+Once upon a time the king helped all his wife had so affe
+--------------------------------------------------------------------------------
+Once upon a time there
+was a widow who had two daughters;
+srun: Step created for StepId=8815175.1
+[rank: 0] Seed set to 0
+/gpfs/home6/scur2792/uvadlc_practicals_2024/assignment2/part2/generate.py:104: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(model_weights_path)
+True False
+number of parameters: 10.73M
+data has 540241 characters, 87 unique.
+running on device cpu
+--------------------------------------------------------------------------------
+Once upon a time the king held a great feast, and
+that everything he touched with it was disencha
+--------------------------------------------------------------------------------
+Once upon a time there was a dear little girl who was
+Cattering to be brought to the king, who at
+--------------------------------------------------------------------------------
+Once upon a time there was a widow which the true bride, ‘there answered, ‘I will heave
+someone w
+--------------------------------------------------------------------------------
+Once upon a time the king helped all his wife had so affected them,
+but all in vain, beard and lo
+--------------------------------------------------------------------------------
+Once upon a time there
+was a widow who had two daughters; one of them
+was beautiful and industrio
+[rank: 0] Seed set to 0
+/gpfs/home6/scur2792/uvadlc_practicals_2024/assignment2/part2/generate.py:104: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(model_weights_path)
+True False
+number of parameters: 10.73M
+data has 540241 characters, 87 unique.
+running on device cpu
+--------------------------------------------------------------------------------
+Once upon a time the king held a great feast, and
+that everything he touched with it was disenchanted, and that there he
+found his Jorinda again.
+
+In the morning when he awoke, 
+--------------------------------------------------------------------------------
+Once upon a time there was a dear little girl who was
+Cattering to be brought to the king, who ate it,
+and it pleased him as well as before; so he sent for the spindle, and
+he t
+--------------------------------------------------------------------------------
+Once upon a time there was a widow which the true bride, ‘there answered, ‘I will heave
+someone words to find it, but scolded and reproached him. He who says:
+‘I see you will ne
+--------------------------------------------------------------------------------
+Once upon a time the king helped all his wife had so affected them,
+but all in vain, beard and lord of the castle. Then he showed the fox’s son ate it with the person or entity
+
+--------------------------------------------------------------------------------
+Once upon a time there
+was a widow who had two daughters; one of them
+was beautiful and industrious, the other ugly and lazy. The mother,
+however, loved the ugly and lazy one be
+srun: Step created for StepId=8815175.3
+[rank: 0] Seed set to 0
+/gpfs/home6/scur2792/uvadlc_practicals_2024/assignment2/part2/generate.py:104: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(model_weights_path)
+True False
+number of parameters: 10.73M
+data has 540241 characters, 87 unique.
+running on device cpu
+--------------------------------------------------------------------------------
+Love is like a weary of anything and never once
+stirred.
+
+When the works came to a forest where he saw a load out
+--------------------------------------------------------------------------------
+Love is like a one the gold chain, and it fell just round the
+man’s neck, so he should have concealed himself in 
+--------------------------------------------------------------------------------
+Love is like an old of them and let you may go
+me again to each other: I think if I were to take and as he could 
+--------------------------------------------------------------------------------
+Love is like a sorrow will fall on his head, and kill
+him.’ Then said the maid: ‘What a cantry there and diamonds
+--------------------------------------------------------------------------------
+Love is like a woodman, and for eating a constantal dwarf cut this
+plan nuder the rascals and buy their lives in 
+[rank: 0] Seed set to 0
+/gpfs/home6/scur2792/uvadlc_practicals_2024/assignment2/part2/generate.py:104: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(model_weights_path)
+True False
+number of parameters: 10.73M
+data has 540241 characters, 87 unique.
+running on device cpu
+--------------------------------------------------------------------------------
+Love is like a weary of anything and never once
+stirred.
+
+When the works came to a forest where he saw a load out
+--------------------------------------------------------------------------------
+Love is like a one the gold chain, and it fell just round the
+man’s neck, so he should have concealed himself in 
+--------------------------------------------------------------------------------
+Love is like an old of them and let you may go
+me again to each other: I think if I were to take and as he could 
+--------------------------------------------------------------------------------
+Love is like a sorrow will fall on his head, and kill
+him.’ Then said the maid: ‘What a cantry there and diamonds
+--------------------------------------------------------------------------------
+Love is like a woodman, and for eating a constantal dwarf cut this
+plan nuder the rascals and buy their lives in 
+srun: Step created for StepId=8815175.5
+[rank: 0] Seed set to 0
+/gpfs/home6/scur2792/uvadlc_practicals_2024/assignment2/part2/generate.py:104: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(model_weights_path)
+True False
+number of parameters: 10.73M
+data has 540241 characters, 87 unique.
+running on device cpu
+--------------------------------------------------------------------------------
+Love is like a weary of the room to the top, till he said, ‘I wish you
+were a raven and would have gone on foothe
+--------------------------------------------------------------------------------
+Love is like a one the gold chain, and it fell just round the
+man’s neck, so he should have been playing at nine-
+--------------------------------------------------------------------------------
+Love is like an old of them and let you may go
+me again to each other: I think if I were to take and as he could 
+--------------------------------------------------------------------------------
+Love is like a sorrow will fall on his head, and kill
+him.’ Then said the maid: ‘What a cantry there and diamonds
+--------------------------------------------------------------------------------
+Love is like a woodman, and for eating a constantal dwarf cut this
+plan nuder the rascals and buy their lives in 
+[rank: 0] Seed set to 0
+/gpfs/home6/scur2792/uvadlc_practicals_2024/assignment2/part2/generate.py:104: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(model_weights_path)
+True False
+number of parameters: 10.73M
+data has 540241 characters, 87 unique.
+running on device cpu
+--------------------------------------------------------------------------------
+Love is like a weary of the room to the top, till he set it, and did
+they repaid her sweetheart Roland, and knew 
+--------------------------------------------------------------------------------
+Love is like a one the top of the house and cried out,
+‘Throw the rascal up here!’ After this the robber ran to t
+--------------------------------------------------------------------------------
+Love is like two daughters
+sorrowfully, and as if she had never taken up their quarters in another mouth,
+who cau
+--------------------------------------------------------------------------------
+Love is like a sorrow will fall on his head, and kill
+him.’ Then said the maid: ‘What a cantry there and diamonds
+--------------------------------------------------------------------------------
+Love is like a woodman, and for eating he was again taking cakes to the old
+grandmother, another wolf spoke to he
+srun: Step created for StepId=8815175.7
+[rank: 0] Seed set to 0
+/gpfs/home6/scur2792/uvadlc_practicals_2024/assignment2/part2/generate.py:104: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(model_weights_path)
+True False
+number of parameters: 10.73M
+data has 540241 characters, 87 unique.
+running on device cpu
+--------------------------------------------------------------------------------
+Love is like a webe by wretch that I am!’ cried the carter; for he saw
+that the corn was almost all gone on the b
+--------------------------------------------------------------------------------
+Love is like a one to every morning to eat, when a large part of gold chain, and had broken his money forth ep
+pe
+--------------------------------------------------------------------------------
+Love is like two daughters
+so carefully about her to see if anyone was watching her, and took off her
+friend, and
+--------------------------------------------------------------------------------
+Love is like a sorrow will fall on his head, and kill
+him.’ Then said the merchant told him how all his were than
+--------------------------------------------------------------------------------
+Love is like a wretched pap on the way. In a short time the egg rew up, and as many as we can,
+before the squirre
+[rank: 0] Seed set to 0
+/gpfs/home6/scur2792/uvadlc_practicals_2024/assignment2/part2/generate.py:104: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(model_weights_path)
+True False
+number of parameters: 10.73M
+data has 540241 characters, 87 unique.
+running on device cpu
+--------------------------------------------------------------------------------
+Walking through the forest, I suddenly heard the soon, the room was swept, the table and benches cleaned, the
+fire in the 
+--------------------------------------------------------------------------------
+Walking through the forest, I suddenly heard the sound of seen and as if he were made of stone. Then the boy
+called to him
+--------------------------------------------------------------------------------
+Walking through the forest, I suddenly heard the youth’s head, and they could see that he
+had golden hair. They rode back 
+--------------------------------------------------------------------------------
+Walking through the forest, I suddenly heard of the morning, a four dinner sat at the blood on her apron, he believed
+this
+--------------------------------------------------------------------------------
+Walking through the forest, I suddenly heard the own child, and choked out it with the princess,
+though very unwilling, to
+srun: Step created for StepId=8815175.9
+[rank: 0] Seed set to 0
+/gpfs/home6/scur2792/uvadlc_practicals_2024/assignment2/part2/generate.py:104: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(model_weights_path)
+True False
+number of parameters: 10.73M
+data has 540241 characters, 87 unique.
+running on device cpu
+--------------------------------------------------------------------------------
+Walking through the forest, I suddenly heard the soon, the rogues in a cestain he had
+when the robbers never darked to run
+--------------------------------------------------------------------------------
+Walking through the forest, I suddenly heard the sound of seen and as if he were made of stone. Then the boy
+called to him
+--------------------------------------------------------------------------------
+Walking through the forest, I suddenly heard the youth’s head, and then she
+wept, and said, ‘Wife, and it is to be got wit
+--------------------------------------------------------------------------------
+Walking through the forest, I suddenly heard the soldier that they had fallen upon the princess. But when he got over the 
+--------------------------------------------------------------------------------
+Walking through the forest, I suddenly heard the own child, and choked out it with the princess,
+though very unwilling, to
+[rank: 0] Seed set to 0
+/gpfs/home6/scur2792/uvadlc_practicals_2024/assignment2/part2/generate.py:104: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(model_weights_path)
+True False
+number of parameters: 10.73M
+data has 540241 characters, 87 unique.
+running on device cpu
+--------------------------------------------------------------------------------
+Walking through the forest, I suddenly heard out of the water and said,
+‘Princess, why do you weep so bitter of me?’ But i
+--------------------------------------------------------------------------------
+Walking through the forest, I suddenly heard the sound of seen and as if he were made of stone. Then the boy
+called to him
+--------------------------------------------------------------------------------
+Walking through the forest, I suddenly heard the youth’s head, and then she
+wept, and said, ‘Wife, and it will give it to 
+--------------------------------------------------------------------------------
+Walking through the forest, I suddenly heard the soldier than the
+former and said: ‘Fox, you are the most cunning of all a
+--------------------------------------------------------------------------------
+Walking through the forest, I suddenly heard the own child, and choked out it with the princess,
+that if they are to get a
+srun: Step created for StepId=8815175.11
+[rank: 0] Seed set to 0
+/gpfs/home6/scur2792/uvadlc_practicals_2024/assignment2/part2/generate.py:104: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(model_weights_path)
+True False
+number of parameters: 10.73M
+data has 540241 characters, 87 unique.
+running on device cpu
+--------------------------------------------------------------------------------
+What does it truly mean to be happy? I think I have been in a
+mouse-hole--and in a snail-shell--and down a cow’s throat--a
+--------------------------------------------------------------------------------
+What does it truly mean to be happy? I think I have something given to me.’ Gretel
+presents Hans with a needle, Hans says:
+--------------------------------------------------------------------------------
+What does it truly mean to be happy? I think I should like you, to suppose the other way so vain he stepped
+into the dead 
+--------------------------------------------------------------------------------
+What does it truly mean to be happy? I think you my way with a
+little loaves, and the mother was confined, and as it was s
+--------------------------------------------------------------------------------
+What does it truly mean to be happy? I think you had become so
+deeply, and she was always tossing it up into the air, and
+
+[rank: 0] Seed set to 0
+/gpfs/home6/scur2792/uvadlc_practicals_2024/assignment2/part2/generate.py:104: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(model_weights_path)
+True False
+number of parameters: 10.73M
+data has 540241 characters, 87 unique.
+running on device cpu
+--------------------------------------------------------------------------------
+My new roommate is so weird, they keep good companions with Project
+Gutenberg-tm electronic works in your possession.
+If you paid a fee for
+--------------------------------------------------------------------------------
+My new roommate is so weird, they keep it in which I done that song entited to eat, that would take
+him for her husband, and she saw that h
+--------------------------------------------------------------------------------
+My new roommate is so weird, they keep awake; but in all the mill were
+to get their father’s sickness; and as the way was quite healthy, an
+--------------------------------------------------------------------------------
+My new roommate is so weird, they keep good companions and lest their shoes were worn out, so
+that they will thought they were in hearts. J
+--------------------------------------------------------------------------------
+My new roommate is so weird, they keep their little child with them, and lay it down
+behind the hedge in the shade while they are at work. 
+srun: Step created for StepId=8815175.13
+[rank: 0] Seed set to 0
+/gpfs/home6/scur2792/uvadlc_practicals_2024/assignment2/part2/generate.py:104: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(model_weights_path)
+True False
+number of parameters: 10.73M
+data has 540241 characters, 87 unique.
+running on device cpu
+--------------------------------------------------------------------------------
+When I opened the box, I was surprised to find the cottage.
+
+So they went ind with a hold of his master, he gave him a needle, and said,
+‘You can s
+--------------------------------------------------------------------------------
+When I opened the box, I was surprised to find the castle of his friends; and after wandering
+about a few days he luckily with them, but could not 
+--------------------------------------------------------------------------------
+When I opened the box, I was surprised to find the cottage-door, knocked at the door, and cried, ‘Fine wares
+you?’ ‘He need not speak so many advic
+--------------------------------------------------------------------------------
+When I opened the box, I was surprised to find the castle of his friends; and after wandering
+about a few days he luckily found it. Then he stained
+--------------------------------------------------------------------------------
+When I opened the box, I was surprised to find the cottage.
+When he had not safe or the king was wonderful dog, and the lovely more
+than he our wif
+[rank: 0] Seed set to 0
+/gpfs/home6/scur2792/uvadlc_practicals_2024/assignment2/part2/generate.py:104: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(model_weights_path)
+True False
+number of parameters: 10.73M
+data has 540241 characters, 87 unique.
+running on device cpu
+--------------------------------------------------------------------------------
+He hesitated for a moment before saying, a wedding was celebrated, and he was crowned king of the Golden
+Mountain.
+
+They lived together very 
+--------------------------------------------------------------------------------
+He hesitated for a moment before saying, ‘Go for gold ones what you can do in this way, but would
+be better upon her journey to her
+bridegroo
+--------------------------------------------------------------------------------
+He hesitated for a moment before saying, we are half of this, and ordered the table,
+seeing of the man, and fell on his eyes promised both Ha
+--------------------------------------------------------------------------------
+He hesitated for a moment before saying, for the cat had a great
+yearning for it, and said to the mouse: ‘I want to tell you something,
+littl
+--------------------------------------------------------------------------------
+He hesitated for a moment before saying, for he had a wife
+already, and someone who had just found an old key, but in the greenwood so long. 
+srun: Step created for StepId=8815175.15
+[rank: 0] Seed set to 0
+/gpfs/home6/scur2792/uvadlc_practicals_2024/assignment2/part2/generate.py:104: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(model_weights_path)
+True False
+number of parameters: 10.73M
+data has 540241 characters, 87 unique.
+running on device cpu
+--------------------------------------------------------------------------------
+Attention is all you need because of them, and when he
+got home he gave it to his daughter. Then she took it, and do the lion window and when the king
+began to work at the
+wheel of the house and
+--------------------------------------------------------------------------------
+Attention is all you need because the huntsmen arose from the street, t there
+was a road so narrow that the cart wheels always chafed the trees
+on each side as they were terrified and wanted to 
+--------------------------------------------------------------------------------
+Attention is all you need because the huntsmen are shooting down there in the thicket.
+Jump as he was merrily and both felt asleep; the butler, who was slyly tasting the ale, for in the sun hand
+--------------------------------------------------------------------------------
+Attention is all you need because I had been of the kingdom for her names, and went with
+the three servants in pursuit of the children. The children, however,
+saw from afar that the three servan
+--------------------------------------------------------------------------------
+Attention is all you need because they had
+been when he was brought that he would not at the trampling of a
+horse at a distance, which so frightened them that they were so weak and
+tell the old 
+srun: Step created for StepId=8815175.16
+[rank: 0] Seed set to 0
+/gpfs/home6/scur2792/uvadlc_practicals_2024/assignment2/part2/generate.py:104: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(model_weights_path)
+True False
+number of parameters: 10.73M
+data has 540241 characters, 87 unique.
+running on device cpu
+--------------------------------------------------------------------------------
+The main advantage of using top-p sampling over greedy decoding is only a straw, and made her a signal was over, he was very much afraid looking with the ashes; and as he was going down to
+the shore a dreadful sword. Thereupon 
+--------------------------------------------------------------------------------
+The main advantage of using top-p sampling over greedy decoding is open, and the maiden owherewise we she
+was terrified, and she was not afraid of them, and engaged him to help his tongue, and had
+said to the maiden: ‘I will go
+--------------------------------------------------------------------------------
+The main advantage of using top-p sampling over greedy decoding is only this only
+thing account of his mouth. His son and his son, with his face and hands,
+put me on the lather to get rid of
+her husband, who was nothing else bu
+--------------------------------------------------------------------------------
+The main advantage of using top-p sampling over greedy decoding is appeared
+with the head of the tree, and caused herself in a beautiful meadow,
+and was so pleased that she came forth three men, and she looked at her and saw th
+--------------------------------------------------------------------------------
+The main advantage of using top-p sampling over greedy decoding is meal with one tremendous leap and sat down
+on each side of him, and followed the sound of the voice. As he drew
+near, the raven said, ‘I am by birth a king’s da
+
+JOB STATISTICS
+==============
+Job ID: 8815175
+Cluster: snellius
+User/Group: scur2792/scur2792
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 9
+CPU Utilized: 00:08:14
+CPU Efficiency: 37.85% of 00:21:45 core-walltime
+Job Wall-clock time: 00:02:25
+Memory Utilized: 7.98 MB
+Memory Efficiency: 0.01% of 60.00 GB
